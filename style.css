@@ -1,0 +1,155 @@
+.transition, .transform, .animation {
+   border: 2px solid red;
+   margin: 1rem 0;
+}
+
+.box {
+    width: 200px;
+    height: 200px;
+}
+
+.b1 {
+    background-color: lightblue;
+}
+
+.b2 {
+    background-color: lightgreen;
+}
+
+.b3 {
+    background-color: lightcoral;
+} 
+
+.b4 {
+    background-color: lightgoldenrodyellow;
+}
+
+/* CSS Transition */
+
+.transition .b1{
+    /* name/duration/timeingfunction/delay */
+  transition: width 1s cubic-bezier(.53, -0.89, .59,1.8) 0.5s;
+}
+
+.transition .b1:hover{
+  width: 400px;
+}
+
+.transition .b2{
+  /* transition: width 0.5s ease-in, height 1s ease-in; */
+  transition: width 0.5s, height 1s ;
+  transition-timing-function: ease-in;
+  /* width to transition first, once done transition height */
+ transition: width 0.5s ease-in, height 1s ease-in 0.5s;
+}
+
+.transition .b2:hover{
+  width: 400px;
+  height: 400px;
+}
+
+.transition .b3{
+  transition: all 1s;
+}
+.transition .b3:hover{
+  background-color: mediumslateblue;
+  border-radius: 50%;
+}
+
+.transition .b4{
+  transition: all 1s;
+}
+.transition .b4:hover{
+  background-color: tomato;
+  box-shadow: inset 0 0 20px black;
+  border-radius: 50%;
+  width: 400px;
+  height: 400px;
+}
+/* CSS Transform */
+
+.transfrom .b1{
+     transform-origin: bottom right;
+}
+
+.transform .b1:hover{
+ transform: rotate(-3060deg) scale(0.5);
+}
+.transform .box{
+  transition: all 1s 0.3s;
+}
+.transform .b2:hover{
+  transform: translate(20px, 30px);
+}
+
+.transform .b2:hover{
+  transform: translate(-10px,0px);
+  translateX(-10px);
+}
+
+.transform .b3:hover{
+  transform:scale(0.5s 1);
+  transform: scale(0.5);
+  transform: scaleX(0.5);
+  transform: scale(1.5, -0.3);
+}
+
+.transform .b4:hover{
+  transform: skew(20deg, 10deg);
+  transform: skewX(20deg);
+  transform: skewY(10deg);
+}
+/* CSS Animation */
+@keyframes changing {
+    
+}
+from {
+    background-color: lightcoral;
+    to {
+    background-color: lightseagreen;}
+}
+    .animation .b1{
+        animation-name: changing;
+        animation-duration: 3s;
+        animation-delay: 1s;
+        animation-iteration-count: infinite;
+        animation-fill-mode: backwards;
+    }
+
+    .animation .b2{
+        animation: changing to lineae is infinite alternate forwards;
+        position: relative;
+    }
+        .animation .b2{
+        animation: changing 4s linear is infinite alternate forwards;
+        position: relative;
+    }
+        .animation .b3{
+        animation: changing 4S ease-in-out 1s 3 alternate-reverse forwards;
+        position: relative;}
+
+        .animation .b4{
+            position: relative;
+            animation: changing 4s ease-in-out 1s 2 normal forwards;
+        }
+
+        @keyframes identifier {
+            0% {transform: scale(0.5) translateX(0)}
+                100% {transform: scale(1.5) translateX(200px);}
+        }
+        .animation .b3{
+        position: relative;
+        animation: identifier 4s ease-in-out 1s 3 alternate-reverse forwards}
+
+          .animation .b3{
+        position: relative;
+        animation: identifier 2s 1s 3 infinite;}
+
+        .animation .b4{
+            position: relative;
+            animation: moveround 4s ease-in-out 1s 2 normal forwards;   
+        }
+
+.animation  .b2{
+    animation: multipleTransfromations 2s 1s 3 infinite alternate;
+}
